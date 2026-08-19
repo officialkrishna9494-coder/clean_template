@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+/* Markdown is prose, not markup: keep docs out of the class scanner so a
+   utility name written in a code span can never emit real CSS. */
+@source not '../**/*.md';
+
 /* ==========================================================================
    TAILWIND THEME BRIDGE
    --------------------------------------------------------------------------

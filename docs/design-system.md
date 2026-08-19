@@ -63,8 +63,10 @@ mobile and desktop instead of snapping at a breakpoint:
 - `rounded-button` `rounded-card` `rounded-input` `rounded-image` — semantic
   radii. Change one token to restyle every instance.
 - `shadow-xs` … `shadow-xl`, plus `shadow-soft` (cards) and `shadow-ring` (focus).
-- `duration-[var(--t-duration-fast|normal|slow)]`,
-  `ease-[var(--t-ease-standard|entrance|exit|spring)]`.
+- `duration-[var(--t-duration-fast)]` `duration-[var(--t-duration-normal)]`
+  `duration-[var(--t-duration-slow)]` — transition durations.
+- `ease-[var(--t-ease-standard)]` `ease-[var(--t-ease-entrance)]`
+  `ease-[var(--t-ease-exit)]` `ease-[var(--t-ease-spring)]` — easing curves.
 - `z-base` `z-raised` `z-sticky` `z-header` `z-dropdown` `z-overlay` `z-modal`
   `z-toast` — named steps, declared as custom utilities in `globals.css`.
 
