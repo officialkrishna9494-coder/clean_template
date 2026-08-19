@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Decorative pattern">
+  <title>Decorative pattern</title>
+  <!-- PLACEHOLDER IMAGE — replace with real artwork at 600x600 (or any image with the same ratio). -->
+  <defs>
+    <linearGradient id="g9" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d96e06"/>
+      <stop offset="1" stop-color="#fbb524"/>
+    </linearGradient>
+    <pattern id="p9" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="24" cy="24" r="1.6" fill="#ffffff" opacity=".28"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="600" fill="url(#g9)"/>
+  <rect width="600" height="600" fill="url(#p9)"/>
+  <g transform="translate(300 264)" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-75 -54h150v108h-150z"/>
+    <circle cx="-31" cy="-18" r="15"/>
+    <path d="M-75 27l46 -42 34 30 37 -39 40 34"/>
+  </g>
+  <text x="50%" y="468" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="27" font-weight="600" fill="#ffffff" fill-opacity=".82">Decorative pattern</text>
+  <text x="50%" y="516" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" fill="#ffffff" fill-opacity=".55">600 x 600 placeholder</text>
+</svg>

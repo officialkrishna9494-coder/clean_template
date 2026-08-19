@@ -1,26 +1,318 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ==========================================================================
+   TAILWIND THEME BRIDGE
+   --------------------------------------------------------------------------
+   Every token below points at a CSS custom property that `<ThemeStyles />`
+   writes onto `:root` from `config/theme.config.ts`. That indirection is what
+   lets a single TypeScript file drive both Tailwind utilities and runtime JS.
 
+   Do not hard-code colours here — edit `config/theme.config.ts` instead.
+   ========================================================================== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- semantic colours ------------------------------------------------- */
+  --color-background: var(--t-color-background);
+  --color-surface: var(--t-color-surface);
+  --color-elevated: var(--t-color-elevated);
+  --color-inverted: var(--t-color-inverted);
+
+  --color-ink: var(--t-color-ink);
+  --color-ink-muted: var(--t-color-ink-muted);
+  --color-ink-subtle: var(--t-color-ink-subtle);
+  --color-ink-inverted: var(--t-color-ink-inverted);
+
+  --color-border: var(--t-color-border);
+  --color-border-strong: var(--t-color-border-strong);
+
+  --color-primary: var(--t-color-primary);
+  --color-primary-hover: var(--t-color-primary-hover);
+  --color-primary-soft: var(--t-color-primary-soft);
+  --color-primary-ink: var(--t-color-primary-ink);
+
+  --color-accent: var(--t-color-accent);
+  --color-accent-hover: var(--t-color-accent-hover);
+  --color-accent-soft: var(--t-color-accent-soft);
+  --color-accent-ink: var(--t-color-accent-ink);
+
+  --color-success: var(--t-color-success);
+  --color-success-soft: var(--t-color-success-soft);
+  --color-warning: var(--t-color-warning);
+  --color-warning-soft: var(--t-color-warning-soft);
+  --color-danger: var(--t-color-danger);
+  --color-danger-soft: var(--t-color-danger-soft);
+
+  --color-ring: var(--t-color-ring);
+
+  /* --- typography ------------------------------------------------------- */
+  --font-sans: var(--t-font-sans);
+  --font-display: var(--t-font-display);
+  --font-mono: var(--t-font-mono);
+
+  --text-xs: var(--t-text-xs);
+  --text-sm: var(--t-text-sm);
+  --text-base: var(--t-text-base);
+  --text-lg: var(--t-text-lg);
+  --text-xl: var(--t-text-xl);
+  --text-2xl: var(--t-text-2xl);
+  --text-3xl: var(--t-text-3xl);
+  --text-4xl: var(--t-text-4xl);
+  --text-5xl: var(--t-text-5xl);
+  --text-6xl: var(--t-text-6xl);
+
+  --leading-tight: var(--t-leading-tight);
+  --leading-snug: var(--t-leading-snug);
+  --leading-normal: var(--t-leading-normal);
+  --leading-relaxed: var(--t-leading-relaxed);
+
+  --tracking-tighter: var(--t-tracking-tighter);
+  --tracking-tight: var(--t-tracking-tight);
+  --tracking-normal: var(--t-tracking-normal);
+  --tracking-wide: var(--t-tracking-wide);
+  --tracking-wider: var(--t-tracking-wider);
+  --tracking-widest: var(--t-tracking-widest);
+
+  /* --- radii ------------------------------------------------------------ */
+  --radius-xs: var(--t-radius-xs);
+  --radius-sm: var(--t-radius-sm);
+  --radius-md: var(--t-radius-md);
+  --radius-lg: var(--t-radius-lg);
+  --radius-xl: var(--t-radius-xl);
+  --radius-2xl: var(--t-radius-2xl);
+  --radius-3xl: var(--t-radius-3xl);
+  --radius-button: var(--t-radius-button);
+  --radius-card: var(--t-radius-card);
+  --radius-input: var(--t-radius-input);
+  --radius-image: var(--t-radius-image);
+
+  /* --- elevation -------------------------------------------------------- */
+  --shadow-xs: var(--t-shadow-xs);
+  --shadow-sm: var(--t-shadow-sm);
+  --shadow-md: var(--t-shadow-md);
+  --shadow-lg: var(--t-shadow-lg);
+  --shadow-xl: var(--t-shadow-xl);
+  --shadow-soft: var(--t-shadow-soft);
+  --shadow-ring: var(--t-shadow-ring);
+
+  /* --- breakpoints (mirror `theme.config.ts` → `breakpoints`) ----------- */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* --- container widths ------------------------------------------------- */
+  /* Namespaced `page-*` so Tailwind's own max-w-sm/md/lg keep their defaults. */
+  --container-page-sm: var(--t-container-sm);
+  --container-page-md: var(--t-container-md);
+  --container-page-lg: var(--t-container-lg);
+  --container-page-xl: var(--t-container-xl);
+  --container-page-2xl: var(--t-container-2xl);
+  --container-page-full: var(--t-container-full);
+
+  /* --- motion ----------------------------------------------------------- */
+  --ease-standard: var(--t-ease-standard);
+  --ease-entrance: var(--t-ease-entrance);
+  --ease-exit: var(--t-ease-exit);
+  --ease-spring: var(--t-ease-spring);
+
+  /* --- animations ------------------------------------------------------- */
+  --animate-fade-in: fade-in var(--t-duration-slow) var(--t-ease-entrance) both;
+  --animate-fade-up: fade-up var(--t-duration-slow) var(--t-ease-entrance) both;
+  --animate-scale-in: scale-in var(--t-duration-normal) var(--t-ease-entrance) both;
+  --animate-slide-down: slide-down var(--t-duration-fast) var(--t-ease-entrance) both;
+  --animate-marquee: marquee 32s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   BASE LAYER
+   ========================================================================== */
+@layer base {
+  * {
+    border-color: var(--t-color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a heading. */
+    scroll-padding-top: 7rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--t-color-background);
+    color: var(--t-color-ink);
+    font-family: var(--t-font-sans);
+    font-size: var(--t-text-base);
+    line-height: var(--t-leading-normal);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--t-font-display);
+    font-weight: var(--t-weight-semibold);
+    line-height: var(--t-leading-tight);
+    letter-spacing: var(--t-tracking-tight);
+    color: var(--t-color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* One consistent focus treatment for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--t-color-ring);
+    outline-offset: 2px;
+    border-radius: var(--t-radius-xs);
+  }
+
+  ::selection {
+    background-color: var(--t-color-primary);
+    color: var(--t-color-primary-ink);
+  }
+
+  /* Images never overflow their container. */
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   COMPONENT UTILITIES
+   Shared patterns that would otherwise be repeated across many components.
+   ========================================================================== */
+@utility container-gutter {
+  padding-inline: var(--t-gutter);
+}
+
+/* Visually hidden but readable by screen readers. */
+@utility sr-only-focusable {
+  &:not(:focus):not(:focus-within) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* Subtle brand gradient used on hero and CTA surfaces. */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(
+    135deg,
+    var(--t-color-primary) 0%,
+    color-mix(in oklab, var(--t-color-primary) 70%, var(--t-color-accent)) 100%
+  );
+}
+
+@utility text-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--t-color-primary) 0%,
+    var(--t-color-accent) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+/* Named z-index steps.
+   Tailwind has no `--z-*` theme namespace, so these are declared as utilities
+   that read the tokens `theme.config.ts` emits. Using names instead of numbers
+   keeps the stacking order legible and impossible to get subtly wrong. */
+@utility z-base {
+  z-index: var(--t-z-base);
+}
+@utility z-raised {
+  z-index: var(--t-z-raised);
+}
+@utility z-sticky {
+  z-index: var(--t-z-sticky);
+}
+@utility z-header {
+  z-index: var(--t-z-header);
+}
+@utility z-dropdown {
+  z-index: var(--t-z-dropdown);
+}
+@utility z-overlay {
+  z-index: var(--t-z-overlay);
+}
+@utility z-modal {
+  z-index: var(--t-z-modal);
+}
+@utility z-toast {
+  z-index: var(--t-z-toast);
+}
+
+/* Clamp text to N lines: `line-clamp-3` ships with Tailwind; this covers the
+   arbitrary case where the count comes from a prop. */
+@utility clamp-* {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: --value(integer);
+  overflow: hidden;
 }

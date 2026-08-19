@@ -1,0 +1,5 @@
+export { featuredServices, getService, services, serviceCategories, servicesByCategory, servicesBySlug } from './services'
+export { averageRating, testimonials } from './testimonials'
+export { generalFaqs } from './faqs'
+export { differentiators, doctor, serviceAreas, stats, trustPoints, visitSteps } from './practice'
+export { galleryItems } from './gallery'

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Bee Cave Family Dentistry">
+  <title>Bee Cave Family Dentistry</title>
+  <!-- PLACEHOLDER IMAGE — replace with real artwork at 1200x630 (or any image with the same ratio). -->
+  <defs>
+    <linearGradient id="g11" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#155357"/>
+      <stop offset="1" stop-color="#148286"/>
+    </linearGradient>
+    <pattern id="p11" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="24" cy="24" r="1.6" fill="#ffffff" opacity=".28"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g11)"/>
+  <rect width="1200" height="630" fill="url(#p11)"/>
+  <g transform="translate(600 277)" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-78 -56h156v112h-156z"/>
+    <circle cx="-32" cy="-18" r="15"/>
+    <path d="M-78 28l48 -43 35 31 39 -40 42 35"/>
+  </g>
+  <text x="50%" y="491" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="28" font-weight="600" fill="#ffffff" fill-opacity=".82">Bee Cave Family Dentistry</text>
+  <text x="50%" y="541" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="19" fill="#ffffff" fill-opacity=".55">1200 x 630 placeholder</text>
+</svg>

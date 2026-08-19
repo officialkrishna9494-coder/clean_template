@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 960" width="1200" height="960" role="img" aria-label="Practice hero image">
+  <title>Practice hero image</title>
+  <!-- PLACEHOLDER IMAGE — replace with real artwork at 1200x960 (or any image with the same ratio). -->
+  <defs>
+    <linearGradient id="g0" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#148286"/>
+      <stop offset="1" stop-color="#1ca3a5"/>
+    </linearGradient>
+    <pattern id="p0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="24" cy="24" r="1.6" fill="#ffffff" opacity=".28"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="960" fill="url(#g0)"/>
+  <rect width="1200" height="960" fill="url(#p0)"/>
+  <g transform="translate(600 422)" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-120 -86h240v172h-240z"/>
+    <circle cx="-50" cy="-28" r="24"/>
+    <path d="M-120 43l74 -67 55 48 60 -62 64 55"/>
+  </g>
+  <text x="50%" y="748" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="43" font-weight="600" fill="#ffffff" fill-opacity=".82">Practice hero image</text>
+  <text x="50%" y="825" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="30" fill="#ffffff" fill-opacity=".55">1200 x 960 placeholder</text>
+</svg>

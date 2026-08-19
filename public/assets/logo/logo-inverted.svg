@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-label="Bee Cave Family Dentistry">
+  <title>Bee Cave Family Dentistry</title>
+  <!-- PLACEHOLDER LOGO — replace this file with the real lockup, keeping the 320x72 ratio. -->
+  <g>
+    <rect x="2" y="8" width="56" height="56" rx="18" fill="#148286"/>
+    <path d="M30 22c-5 0-7 3-7 3s-2-3-7-3c-4.5 0-8 3.6-8 9 0 9 10 17 15 20 5-3 15-11 15-20 0-5.4-3.5-9-8-9Z" fill="#fff" opacity=".92" transform="translate(6 4) scale(.78)"/>
+    <circle cx="43" cy="22" r="5" fill="#fbb524"/>
+  </g>
+  <text x="72" y="35" font-family="Georgia, 'Times New Roman', serif" font-size="24" font-weight="600" fill="#ffffff">Bee Cave</text>
+  <text x="72" y="56" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="13" letter-spacing="3.4" fill="#fbb524">FAMILY DENTISTRY</text>
+</svg>

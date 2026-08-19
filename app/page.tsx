@@ -1,69 +1,181 @@
-import Image from "next/image";
+import { ArrowRight, CalendarDays, Phone, ShieldCheck } from 'lucide-react'
+import { ButtonLink, Section, SectionHeader } from '@/components/ui'
+import {
+  ContactInfo,
+  CtaBand,
+  FaqSection,
+  FeatureGrid,
+  Hero,
+  MapEmbed,
+  MediaSplit,
+  ProcessSteps,
+  ServiceAreas,
+  ServicesGrid,
+  StatsBand,
+  Testimonials,
+} from '@/components/sections'
+import { AppointmentForm } from '@/components/forms'
+import { assets, site } from '@/config'
+import {
+  averageRating,
+  differentiators,
+  doctor,
+  featuredServices,
+  generalFaqs,
+  serviceAreas,
+  stats,
+  testimonials,
+  visitSteps,
+} from '@/content'
+import { buildMetadata } from '@/lib/utils/seo'
 
-export default function Home() {
+export const metadata = buildMetadata({ path: '/' })
+
+/**
+ * Homepage.
+ *
+ * Every band is a section component from `components/sections/`, fed by data
+ * from `content/` and `config/`. There is no bespoke layout code here — which
+ * is exactly what makes this page reproducible for another practice.
+ */
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+    <>
+      <Hero
+        eyebrow="Now welcoming new patients"
+        title={
+          <>
+            Gentle dental care for <span className="text-primary">every age</span>, right here in
+            Bee Cave
+          </>
+        }
+        description="Your family's oral health is our top priority. From a toddler's first checkup to same-day crowns and full smile makeovers, Dr. Smrity Amatya and her team provide compassionate, high-quality care in a warm, welcoming practice."
+        highlights={[
+          'Preventive, restorative and cosmetic care under one roof',
+          'Same-day CEREC® crowns — no temporary, no second visit',
+          'Emergency slots held open every day',
+        ]}
+        secondaryCta={{ label: site.contact.phone.display, href: `tel:${site.contact.phone.href}` }}
+        image={assets.hero.primary}
+        rating={{ value: averageRating, count: 40 }}
+      />
+
+      <StatsBand stats={stats} tone="primary" />
+
+      <ServicesGrid
+        id="services"
+        services={featuredServices}
+        eyebrow="Our Services"
+        title="Complete dental care, all in one place"
+        description="A wide range of services tailored to every member of your family — from preventive care and cleanings to restorative treatments and cosmetic enhancements."
+        columns={3}
+        cta={{ label: 'View all services', href: '/services' }}
+      />
+
+      <MediaSplit
+        eyebrow="Meet Your Dentist"
+        title={doctor.name}
+        body={doctor.bio.slice(0, 2)}
+        bullets={doctor.highlights}
+        image={assets.about.doctor}
+        ratio="portrait"
+        imageSide="left"
+        tone="surface"
+        cta={{ label: 'More about the practice', href: '/about-us' }}
+        overlay={{ value: '10+', label: 'Years caring for families in Texas and Pennsylvania' }}
+      />
+
+      <FeatureGrid
+        features={differentiators}
+        eyebrow="Why Choose Us"
+        title="Care built around how you actually feel about the dentist"
+        description="We know a dental visit is not most people's favourite hour. Everything here is arranged to make it a straightforward, unhurried and genuinely comfortable one."
+        tone="default"
+        columns={3}
+      />
+
+      <ProcessSteps
+        steps={visitSteps}
+        eyebrow="How It Works"
+        title="What to expect at your first visit"
+        description="No surprises, no pressure and no jargon — just a clear picture of where you stand and what your options are."
+        tone="surface"
+      />
+
+      <Testimonials
+        testimonials={testimonials}
+        eyebrow="Patient Reviews"
+        title="What our patients say"
+        description="A calm room, an unhurried explanation and work that lasts. Here is how that lands with the people we look after."
+        tone="default"
+        limit={6}
+      />
+
+      {/* Booking band — the primary conversion point on the page. */}
+      <Section id="appointment" tone="surface" spacing="lg">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+          <div className="flex flex-col gap-8">
+            <SectionHeader
+              align="left"
+              eyebrow="Book a Visit"
+              title="Request your appointment"
+              description="Send us a few details and we will call to confirm a time that works. New patients receive complimentary teeth whitening with their first cleaning and exam."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            <div className="flex flex-col gap-4 rounded-card border border-border bg-elevated p-6">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+                <p className="text-base text-ink-muted">
+                  We work with most major PPO dental plans and file your claim for you. CareCredit
+                  financing is available for larger treatment plans.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <ButtonLink
+                  href={`tel:${site.contact.phone.href}`}
+                  variant="soft"
+                  leadingIcon={<Phone className="size-4" aria-hidden="true" />}
+                >
+                  {site.contact.phone.display}
+                </ButtonLink>
+                <ButtonLink
+                  href="/contact"
+                  variant="ghost"
+                  trailingIcon={<ArrowRight className="size-4" aria-hidden="true" />}
+                >
+                  Other ways to reach us
+                </ButtonLink>
+              </div>
+            </div>
+
+            <ContactInfo />
+          </div>
+
+          <div className="rounded-card border border-border bg-elevated p-6 shadow-soft sm:p-9">
+            <div className="mb-6 flex items-center gap-3">
+              <CalendarDays className="size-6 text-primary" aria-hidden="true" />
+              <h3 className="font-display text-2xl text-ink">Appointment request</h3>
+            </div>
+            <AppointmentForm />
+          </div>
         </div>
-      </main>
-    </div>
-  );
+      </Section>
+
+      <Section tone="default" spacing="lg">
+        <SectionHeader
+          eyebrow="Find Us"
+          title="Minutes from the Hill Country Galleria"
+          description="Free surface parking directly outside the building, with step-free access to Suite 200."
+          className="mb-12"
+        />
+        <MapEmbed height={440} />
+      </Section>
+
+      <ServiceAreas areas={serviceAreas} tone="surface" />
+
+      <FaqSection faqs={generalFaqs.slice(0, 6)} tone="default" />
+
+      <CtaBand />
+    </>
+  )
 }

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Image">
+  <title>Image</title>
+  <!-- PLACEHOLDER IMAGE — replace with real artwork at 1200x800 (or any image with the same ratio). -->
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#148286"/>
+      <stop offset="1" stop-color="#1ca3a5"/>
+    </linearGradient>
+    <pattern id="p5" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="24" cy="24" r="1.6" fill="#ffffff" opacity=".28"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g5)"/>
+  <rect width="1200" height="800" fill="url(#p5)"/>
+  <g transform="translate(600 352)" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-100 -72h200v144h-200z"/>
+    <circle cx="-42" cy="-24" r="20"/>
+    <path d="M-100 36l62 -56 46 40 50 -52 54 46"/>
+  </g>
+  <text x="50%" y="624" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="36" font-weight="600" fill="#ffffff" fill-opacity=".82">Image</text>
+  <text x="50%" y="688" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="25" fill="#ffffff" fill-opacity=".55">1200 x 800 placeholder</text>
+</svg>
